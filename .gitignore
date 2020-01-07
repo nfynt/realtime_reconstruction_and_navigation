@@ -6,6 +6,10 @@ OpenCVTest/[Bb]uild/
 OpenCVTest/[Bb]uilds/
 OpenCVTest/Assets/AssetStoreTools*
 OpenCVLib/OpenCVLib/x64/
+OpenCVLib/OpenCVLib/[Dd]ebug/
+OpenCVLib/OpenCVLib/[Dd]ebugPublic/
+OpenCVLib/OpenCVLib/[Rr]elease/
+OpenCVLib/OpenCVLib/[Rr]eleases/
 
 # Visual Studio cache directory
 OpenCVTest/.vs/
@@ -26,6 +30,44 @@ ExportedObj/
 *.svd
 *.pdb
 *.opendb
+
+#VS Lib extensions
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+#*.meta
+#*.obj
+*.iobj
+*.pch
+#*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.svclog
+*.scc
+
+#Generated files
+mono_crash.*
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 
 # Unity3D generated meta files
 *.pidb.meta
