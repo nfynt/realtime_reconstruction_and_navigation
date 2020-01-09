@@ -1,55 +1,60 @@
 #include "stdafx.h"
-//
-//#include "opencv2/opencv.hpp"
-//
-//
-//using namespace cv;
-//using namespace std;
-//
-//Mat _currFrame;
-//
-//#define OPENCV_API __declspec(dllexport)
-//
-//extern "C" {
-//
-//	OPENCV_API uchar* GetRawImage()
-//	{
-//		return _currFrame.data;
-//	}
-//
-//	OPENCV_API void UpdateFrame(unsigned char* texData, int width, int height)
-//	{
-//		Mat texture(height, width, CV_8UC4, texData);
-//		cvtColor(texture, texture, COLOR_RGB2GRAY);
-//
-//		cvtColor(texture, texture, COLOR_GRAY2RGB);
-//
-//	}
-//
-//	OPENCV_API void ShowImage(string filePath)
-//	{
-//		//Mat img = imread(filePath);
-//		//cvtColor(img, img, COLOR_BGR2GRAY);
-//		//imwrite("lenna_gray.jpg", img);
-//		//imshow("Test image", img);
-//	}
-//
-//	OPENCV_API int DoubleInt(int a)
-//	{
-//		return 2 * a;
-//	}
-//
-//	OPENCV_API void UpdateImage(unsigned char* data, int width, int height)
-//	{
-//		//Resize Mat to match the array passed to it from C#
-//		Mat resizedMat(height, width, _currFrame.type());
-//		resize(_currFrame, resizedMat, resizedMat.size(), INTER_CUBIC);
-//
-//		//Do operation here
-//
-//		//Convert from RGB to ARGB 
-//		cv::Mat argb_img;
-//		cv::cvtColor(resizedMat, argb_img, COLOR_BGR2RGBA);
-//		memcpy(data, argb_img.data, argb_img.total() * argb_img.elemSize());
-//	}
-//}
+
+//#include "opencv2/core.hpp"
+#include "opencv2/opencv.hpp"
+
+
+using namespace cv;
+using namespace std;
+
+
+struct Color32
+{
+	uchar red;
+	uchar green;
+	uchar blue;
+	uchar alpha;
+};
+
+Mat _currFrame;
+
+#define OPENCV_API __declspec(dllexport)
+
+extern "C" {
+
+	OPENCV_API void ConvertTexToGray(Color32** texData, int width, int height)
+	{
+		Mat texture(height, width, CV_8UC4, *texData);
+
+		//Flip if necessary
+		//flip(texture, texture, -1);
+		Mat gray;
+		cvtColor(texture, gray, COLOR_RGBA2GRAY);
+
+		cvtColor(gray, texture, COLOR_GRAY2RGBA);
+
+	}
+
+	OPENCV_API void CannyEdgeFilter(Color32** texData, int width, int height)
+	{
+		Mat texture(height, width, CV_8UC4, *texData);
+
+		//Flip if necessary
+		//flip(texture, texture, -1);
+		
+		Mat edges;
+		Canny(texture, edges, 50, 200);
+		dilate(edges, edges, (5, 5));
+		cvtColor(edges, edges, COLOR_GRAY2RGBA);
+		normalize(edges, edges, 0, 1, NORM_MINMAX);
+		multiply(texture, edges, texture);
+
+		// flip again (just vertically) to get the right orientation
+		//flip(image, image, 0);
+	}
+
+	OPENCV_API int DoubleInt(int a)
+	{
+		return 2 * a;
+	}
+}
