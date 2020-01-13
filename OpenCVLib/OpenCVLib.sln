@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenCVLib", "OpenCVLib\OpenCVLib.vcxproj", "{B028878F-2A13-4DD0-9525-F6D74A83A462}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenCVDriver", "OpenCVDriver\OpenCVDriver.vcxproj", "{972ACA41-FD02-4B96-87CC-0D26DDF4A3DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B028878F-2A13-4DD0-9525-F6D74A83A462} = {B028878F-2A13-4DD0-9525-F6D74A83A462}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +26,14 @@ Global
 		{B028878F-2A13-4DD0-9525-F6D74A83A462}.Release|x64.Build.0 = Release|x64
 		{B028878F-2A13-4DD0-9525-F6D74A83A462}.Release|x86.ActiveCfg = Release|Win32
 		{B028878F-2A13-4DD0-9525-F6D74A83A462}.Release|x86.Build.0 = Release|Win32
+		{972ACA41-FD02-4B96-87CC-0D26DDF4A3DC}.Debug|x64.ActiveCfg = Debug|x64
+		{972ACA41-FD02-4B96-87CC-0D26DDF4A3DC}.Debug|x64.Build.0 = Debug|x64
+		{972ACA41-FD02-4B96-87CC-0D26DDF4A3DC}.Debug|x86.ActiveCfg = Debug|Win32
+		{972ACA41-FD02-4B96-87CC-0D26DDF4A3DC}.Debug|x86.Build.0 = Debug|Win32
+		{972ACA41-FD02-4B96-87CC-0D26DDF4A3DC}.Release|x64.ActiveCfg = Release|x64
+		{972ACA41-FD02-4B96-87CC-0D26DDF4A3DC}.Release|x64.Build.0 = Release|x64
+		{972ACA41-FD02-4B96-87CC-0D26DDF4A3DC}.Release|x86.ActiveCfg = Release|Win32
+		{972ACA41-FD02-4B96-87CC-0D26DDF4A3DC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

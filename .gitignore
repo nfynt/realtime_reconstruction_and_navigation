@@ -11,6 +11,12 @@ OpenCVLib/OpenCVLib/[Dd]ebugPublic/
 OpenCVLib/OpenCVLib/[Rr]elease/
 OpenCVLib/OpenCVLib/[Rr]eleases/
 OpenCVLib/Dependencies/
+OpenCVLib/OpenCVDriver/x64/
+OpenCVLib/OpenCVDriver/[Dd]ebug/
+OpenCVLib/OpenCVDriver/[Dd]ebugPublic/
+OpenCVLib/OpenCVDriver/[Rr]elease/
+OpenCVLib/OpenCVDriver/[Rr]eleases/
+
 
 # Visual Studio cache directory
 OpenCVTest/.vs/
