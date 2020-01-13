@@ -25,3 +25,13 @@ void VideoTest::DisableVideoCapture()
 {
 	return cap.release();
 }
+
+VideoTest::VideoTest()
+{
+
+}
+
+VideoTest::~VideoTest()
+{
+
+}

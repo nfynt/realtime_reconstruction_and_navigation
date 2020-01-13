@@ -9,5 +9,6 @@ public:
 	~Filtering();
 
 	cv::Mat ConvertToGrayScale(cv::Mat srcImg, bool isBGR = true);
+	cv::Mat gammaCorrection(cv::Mat srcImg, float gamma);
 };
 

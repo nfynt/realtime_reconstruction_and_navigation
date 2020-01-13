@@ -33,8 +33,9 @@ int main()
 		frame = vid.GetCurrFrame();
 		//frame = cv::imread("C:/Users/shubh/Pictures/OpenCVImg/lenna.png");
 		cv::imshow("Camera", frame);
-		cv::Mat gray = filter.ConvertToGrayScale(frame);
-		cv::imshow("Filter", gray);
+		//cv::Mat gray = filter.ConvertToGrayScale(frame);
+		cv::Mat img_filter = filter.gammaCorrection(frame,0.3);
+		cv::imshow("Filter", img_filter);
 
 		if (waitKey(5) >= 0)
 			break;
